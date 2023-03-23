@@ -1,7 +1,10 @@
 ul {
   list-style: none;
+  padding-left: 0px;
 }
 
 li {
   display: inline;
+  padding-left: .1em;
+  padding-right: .1em;
 }

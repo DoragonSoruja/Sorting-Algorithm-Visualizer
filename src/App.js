@@ -1,10 +1,17 @@
 import './App.css';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 function App() {
   const [array, setArray] = useState([5, 3, 1, 2, 4])
 
-  const canvas = document.getElementById("canvas")
+  useEffect(() => {
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for(let x = 0; x < array.length; x++) {
+      ctx.fillRect(10*x+2*x, 0, 10, 10*array[x])
+    }
+  }, [array])
 
   const bubbleSort = (array) => {
     let copyArray = [...array]
@@ -27,8 +34,7 @@ function App() {
 
   return (
     <body>
-      <canvas id="canvas">
-        {}
+      <canvas id='canvas'>
       </canvas>
       <ul>
       {array.map((num) =>
