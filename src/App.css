@@ -1,3 +1,29 @@
+header {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+#buttons button {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+#method-list {
+  padding-bottom: 1.5em;
+}
+
+section article {
+  display: flex;
+  justify-content: center;
+}
+
+section canvas {
+  border-style: solid;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 ul {
   list-style: none;
   padding-left: 0px;

@@ -1,49 +1,48 @@
 import './App.css';
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
+import Header from "./Component/Header"
+import BubbleSort from './Component/BubbleSort';
 
 function App() {
-  const [array, setArray] = useState([5, 3, 1, 2, 4])
+  const [array, setArray] = useState([4, 5, 2, 3, 1])
+
+  const canvas = useRef()
 
   useEffect(() => {
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const ctx = canvas.current.getContext("2d");
+    ctx.clearRect(0, 0, canvas.current.width, canvas.current.height);
     for(let x = 0; x < array.length; x++) {
-      ctx.fillRect(10*x+2*x, 0, 10, 10*array[x])
+      ctx.fillRect(10*x+2*x, canvas.current.height, 10, -10*array[x])
     }
   }, [array])
 
-  const bubbleSort = (array) => {
-    let copyArray = [...array]
-
-    for(let x = 0;  x < copyArray.length; x++)
-    {
-      for(let y = 0; y < copyArray.length-1; y++)
-      {
-        if(copyArray[y] > copyArray[y+1])
-        {
-          let temp = copyArray[y]
-          copyArray[y] = copyArray[y+1]
-          copyArray[y+1] = temp
-        }
-      }
-    }
-
-    return copyArray
-  }
-
   return (
-    <body>
-      <canvas id='canvas'>
-      </canvas>
-      <ul>
-      {array.map((num) =>
-        <li>{num}</li>
-        )}
-      </ul>
-
-      <button onClick={() => {setArray(bubbleSort(array))}}>Update</button>
-    </body>
+    <html>
+      <Header />
+      <section>
+        <article id="canvas">
+          <canvas ref={canvas} />
+        </article>
+        <article id="array-display">
+          <ul>
+          {array.map((num) =>
+            <li>{num}</li>
+            )}
+          </ul>
+        </article>
+        <section >
+          <article id="method-list">
+            <select name="sort-method">
+              <option value="Bubble Sort">Bubble Sort</option>
+            </select>
+          </article>
+          <article id="buttons">
+            <button onClick={() => {setArray(BubbleSort(array))}}>Update</button>
+            <button onClick={() => {setArray([4, 5, 2, 3, 1])}}>Reset</button>
+          </article>
+        </section>
+      </section>
+    </html>
   );
 }
 
