@@ -2,6 +2,7 @@ import './App.css';
 import React, {useEffect, useRef, useState} from "react";
 import Header from "./Component/Header"
 import BubbleSort from './Component/BubbleSort';
+import NewArray from './Component/NewArray';
 
 function App() {
   const [array, setArray] = useState([4, 5, 2, 3, 1])
@@ -11,9 +12,14 @@ function App() {
   useEffect(() => {
     const ctx = canvas.current.getContext("2d");
     ctx.clearRect(0, 0, canvas.current.width, canvas.current.height);
-    for(let x = 0; x < array.length; x++) {
-      ctx.fillRect(10*x+2*x, canvas.current.height, 10, -10*array[x])
-    }
+    let width = canvas.current.width * .9;
+    let barWidth = width / array.length * .75;
+    let buffer = width / array.length * .25;
+    let arrayPos = canvas.current.width * .05 + buffer / 2;
+    array.forEach(element => {
+      ctx.fillRect(arrayPos, canvas.current.height, barWidth, -10*element)
+      arrayPos += barWidth + buffer;
+    })
   }, [array])
 
   return (
@@ -38,7 +44,7 @@ function App() {
           </article>
           <article id="buttons">
             <button onClick={() => {setArray(BubbleSort(array))}}>Update</button>
-            <button onClick={() => {setArray([4, 5, 2, 3, 1])}}>Reset</button>
+            <button onClick={() => {setArray(NewArray(50))}}>Reset</button>
           </article>
         </section>
       </section>
