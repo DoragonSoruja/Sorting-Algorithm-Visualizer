@@ -21,6 +21,7 @@ section article {
 section canvas {
   border-style: solid;
   border-color: blue;
+  margin-bottom: 1em;
 }
 
 ul {

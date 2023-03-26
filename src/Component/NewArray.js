@@ -1,5 +1,5 @@
 function NewArray(length) {
-    const newArray = []
+    let newArray = []
 
     for(let x = 0; x < length; x++)
     {
