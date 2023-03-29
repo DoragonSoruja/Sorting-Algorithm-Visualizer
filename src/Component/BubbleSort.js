@@ -2,8 +2,6 @@ function BubbleSort(state, percent) {
     let copyArray = [...state]
     let steps = 0
     let maxSteps = getSteps(state)
-    console.log(maxSteps)
-    console.log(percent)
 
     for(let x = 0;  x < copyArray.length; x++)
     {
@@ -50,7 +48,6 @@ function getSteps(state) {
       }
     }
   }
-  
   return steps
 }
 

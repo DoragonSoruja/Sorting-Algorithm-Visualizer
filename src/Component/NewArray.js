@@ -3,7 +3,7 @@ function NewArray(length) {
 
     for(let x = 0; x < length; x++)
     {
-        newArray.push((Math.random() * 10))
+        newArray.push((Math.random() * 15))
     }
 
     return newArray;
