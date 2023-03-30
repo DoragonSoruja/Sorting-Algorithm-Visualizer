@@ -1,15 +1,36 @@
+html {
+  background-color: #7FD2F8;
+}
+
 header {
   display: flex;
   justify-content: center;
   margin: auto;
 }
 
+select {
+  width: auto;
+  height: 2.5em;
+  border-radius: 10px;
+}
+
+#controls {
+  border-style: solid;
+  border-color: #354A54;
+  background-color: #99AEBA;
+}
+
 #buttons button {
+  height: 2.5em;
+  width: 6em;
   margin-left: 1em;
   margin-right: 1em;
+  margin-bottom: 1.5em;
+  background-color: #EBB6E3;
 }
 
 #method-list {
+  padding-top: 1.5em;
   padding-bottom: 1.5em;
 }
 
@@ -28,8 +49,10 @@ section article {
 
 section canvas {
   border-style: solid;
-  border-color: blue;
+  border-color: #354A54;
+  background-color: #99AEBA;
   margin-bottom: 1em;
+  border-radius: 25px;
 }
 
 ul {

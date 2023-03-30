@@ -54,7 +54,7 @@ function App() {
   }, [array])
 
   return (
-    <div>
+    <div id="background">
       <Header />
       <section>
         <article id="canvas">
@@ -72,9 +72,9 @@ function App() {
             <input type="range" min={100} max={300} value={arrSize} onChange={e => setArrSize(e.target.value)} />
           </article>
           <article id="buttons">
-            <button onClick={() => {update(algorithm)}}>Update</button>
+            <button onClick={() => {update(algorithm);}}>Sort</button>
             <button onClick={() => {}}>Pause</button>
-            <button onClick={() => {setArray(NewArray(arrSize))}}>Reset</button>
+            <button onClick={() => {setArray(NewArray(arrSize))}}>New Array</button>
           </article>
         </section>
       </section>
