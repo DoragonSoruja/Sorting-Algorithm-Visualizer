@@ -8,6 +8,9 @@ function App() {
   const [array, setArray] = useState([4, 5, 2, 3, 1])
   const [arrSize, setArrSize] = useState(100);
   const [algorithm, setAlgorithm] = useState("Bubble Sort");
+  const [disabled, setDisabled] = useState(false);
+  const [percent, setPercent] = useState(0)
+  const paused = useRef(true);
 
   const canvas = useRef()
 
@@ -27,26 +30,33 @@ function App() {
   function update(algorithm){
     if(algorithm === "Bubble Sort")
     {
-      drawBubble(.001)
+      drawBubble(percent, .001)
     }
     else if(algorithm === "Quick Sort")
     {
-      drawBubble(1)
+      drawBubble(1, 1)
     }
   }
 
-  async function drawBubble(percent) {
-    const increment = percent
-    while (percent < 1) {
+  async function drawBubble(percent, increment) {
+    while (percent < 1 && !paused.current) {
       drawGraph(BubbleSort(array, percent))
       percent += increment
       await new Promise(response => setTimeout(response, 10))
     }
     drawGraph(BubbleSort(array, percent))
+    if(percent >= 1) {
+      setDisabled(false)
+      setPercent(0)
+    }
+    else if(percent < 1){
+      setPercent(percent)
+    }
   }
 
   useEffect(() => {
     setArray(NewArray(arrSize))
+    setPercent(0)
   }, [arrSize])
 
   useEffect(() => {
@@ -62,19 +72,19 @@ function App() {
         </article>
         <section id="controls">
           <article id="method-list">
-            <select name="sort-method" value={algorithm} onChange={e => {setAlgorithm(e.target.value)}}>
+            <select name="sort-method" value={algorithm} disabled={disabled} onChange={e => {setAlgorithm(e.target.value)}}>
               <option value="Bubble Sort">Bubble Sort</option>
               <option value="Quick Sort">Quick Sort</option>
             </select>
           </article>
           <article id="array-slider">
             <p>{arrSize}</p>
-            <input type="range" min={100} max={300} value={arrSize} onChange={e => setArrSize(e.target.value)} />
+            <input type="range" min={100} max={300} value={arrSize} disabled={disabled} onChange={e => setArrSize(e.target.value)} />
           </article>
           <article id="buttons">
-            <button onClick={() => {update(algorithm);}}>Sort</button>
-            <button onClick={() => {}}>Pause</button>
-            <button onClick={() => {setArray(NewArray(arrSize))}}>New Array</button>
+            <button disabled={disabled} onClick={() => {paused.current = false; setDisabled(true); update(algorithm);}}>Sort</button>
+            <button disabled={!disabled} onClick={() => {paused.current = !paused.current; setDisabled(false)}}>Pause</button>
+            <button disabled={disabled} onClick={() => {setPercent(0); setArray(NewArray(arrSize));}}>New Array</button>
           </article>
         </section>
       </section>
