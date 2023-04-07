@@ -2,10 +2,11 @@ import './App.css';
 import React, {useEffect, useRef, useState} from "react";
 import Header from "./Component/Header";
 import BubbleSort from './Component/BubbleSort';
+import QuickSort from './Component/QuickSort';
 import NewArray from './Component/NewArray';
 
 function App() {
-  const [array, setArray] = useState([4, 5, 2, 3, 1])
+  const [array, setArray] = useState([8,2,4,7,1,3,9,6,5])
   const [arrSize, setArrSize] = useState(100);
   const [algorithm, setAlgorithm] = useState("Bubble Sort");
   const [disabled, setDisabled] = useState(false);
@@ -34,7 +35,7 @@ function App() {
     }
     else if(algorithm === "Quick Sort")
     {
-      drawBubble(1, 1)
+      setArray(QuickSort(array))
     }
   }
 
@@ -55,7 +56,6 @@ function App() {
   }
 
   useEffect(() => {
-    setArray(NewArray(arrSize))
     setPercent(0)
   }, [arrSize])
 

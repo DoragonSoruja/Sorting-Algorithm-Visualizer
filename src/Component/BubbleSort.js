@@ -1,7 +1,7 @@
-function BubbleSort(state, percent) {
-    let copyArray = [...state]
+function BubbleSort(array, percent) {
+    let copyArray = [...array]
     let steps = 0
-    let maxSteps = getSteps(state)
+    let maxSteps = getSteps(array)
 
     for(let x = 0;  x < copyArray.length; x++)
     {
@@ -28,8 +28,8 @@ function BubbleSort(state, percent) {
     return copyArray
 }
 
-function getSteps(state) {
-  let copyArray = [...state]
+function getSteps(array) {
+  let copyArray = [...array]
   let steps = 0
 
   for(let x = 0;  x < copyArray.length; x++)
