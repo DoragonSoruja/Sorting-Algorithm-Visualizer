@@ -2,7 +2,7 @@ import './App.css';
 import React, {useEffect, useRef, useState} from "react";
 import Header from "./Component/Header";
 import BubbleSort from './Component/BubbleSort';
-import QuickSort from './Component/QuickSort';
+import {QuickSort, NewQuickSort} from './Component/QuickSort';
 import NewArray from './Component/NewArray';
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
     }
     else if(algorithm === "Quick Sort")
     {
-      setArray(QuickSort(array))
+      setArray(NewQuickSort(array))
     }
   }
 
@@ -57,11 +57,14 @@ function App() {
 
   useEffect(() => {
     setPercent(0)
+    setArray(NewArray(arrSize))
   }, [arrSize])
 
   useEffect(() => {
     drawGraph(array)
   }, [array])
+
+
 
   return (
     <div id="background">
