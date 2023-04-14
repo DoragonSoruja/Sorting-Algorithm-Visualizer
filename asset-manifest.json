@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/doragonsoruja.github.io/Sorting-Algorithm-Visualizer/static/css/main.faaaf8ab.css",
-    "main.js": "/doragonsoruja.github.io/Sorting-Algorithm-Visualizer/static/js/main.517d656e.js",
-    "index.html": "/doragonsoruja.github.io/Sorting-Algorithm-Visualizer/index.html",
-    "main.faaaf8ab.css.map": "/doragonsoruja.github.io/Sorting-Algorithm-Visualizer/static/css/main.faaaf8ab.css.map",
-    "main.517d656e.js.map": "/doragonsoruja.github.io/Sorting-Algorithm-Visualizer/static/js/main.517d656e.js.map"
+    "main.css": "/Sorting-Algorithm-Visualizer/static/css/main.faaaf8ab.css",
+    "main.js": "/Sorting-Algorithm-Visualizer/static/js/main.517d656e.js",
+    "index.html": "/Sorting-Algorithm-Visualizer/index.html",
+    "main.faaaf8ab.css.map": "/Sorting-Algorithm-Visualizer/static/css/main.faaaf8ab.css.map",
+    "main.517d656e.js.map": "/Sorting-Algorithm-Visualizer/static/js/main.517d656e.js.map"
   },
   "entrypoints": [
     "static/css/main.faaaf8ab.css",
