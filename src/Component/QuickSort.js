@@ -12,6 +12,8 @@ function QuickSort(array, percent) {
     while(boundariesArr.getSize() !== 0)
     {
         let boundaries = boundariesArr.pop()
+        console.log(copy)
+        console.log([copy[boundaries[0]], copy[boundaries[1]-1], copy[boundaries[0]+Math.round((boundaries[1]-boundaries[0])/2)]])
         let pivot = copy[boundaries[1] - 1]
         if(boundaries[0] === boundaries[1])
         {

@@ -73,7 +73,7 @@ function App() {
 
   useEffect(() => {
     setPercent(0)
-    //setArray(NewArray(arrSize))
+    setArray(NewArray(arrSize))
   }, [arrSize])
 
   useEffect(() => {
@@ -104,6 +104,16 @@ function App() {
             <button disabled={disabled} onClick={() => {paused.current = false; setDisabled(true); update(algorithm);}}>Sort</button>
             <button disabled={!disabled} onClick={() => {paused.current = !paused.current; setDisabled(false)}}>Pause</button>
             <button disabled={disabled} onClick={() => {setPercent(0); setArray(NewArray(arrSize));}}>New Array</button>
+          </article>
+        </section>
+        <section id="github">
+          <article>
+            <a href='https://github.com/DoragonSoruja/Sorting-Algorithm-Visualizer'>
+              <img src={require("./icons/github-mark.png")} alt='Github Logo' height={50}/>
+            </a>
+          </article>
+          <article>
+            <p>DoragonSoruja</p>
           </article>
         </section>
       </section>
