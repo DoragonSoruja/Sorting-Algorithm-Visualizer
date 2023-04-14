@@ -2,7 +2,7 @@ import './App.css';
 import React, {useEffect, useRef, useState} from "react";
 import Header from "./Component/Header";
 import BubbleSort from './Component/BubbleSort';
-import {QuickSort, NewQuickSort} from './Component/QuickSort';
+import {QuickSort} from './Component/QuickSort';
 import NewArray from './Component/NewArray';
 
 function App() {
@@ -35,7 +35,23 @@ function App() {
     }
     else if(algorithm === "Quick Sort")
     {
-      setArray(NewQuickSort(array))
+      drawQuick(percent, .0005)
+    }
+  }
+
+  async function drawQuick(percent, increment) {
+    while(percent < 1 && !paused.current){
+      drawGraph(QuickSort(array, percent))
+      percent += increment
+      await new Promise(response => setTimeout(response, 10))
+    }
+    drawGraph(QuickSort(array, percent))
+    if(percent >= 1){
+      setDisabled(false)
+      setPercent(0)
+    }
+    else if(percent < 1){
+      setPercent(percent)
     }
   }
 
@@ -57,7 +73,7 @@ function App() {
 
   useEffect(() => {
     setPercent(0)
-    setArray(NewArray(arrSize))
+    //setArray(NewArray(arrSize))
   }, [arrSize])
 
   useEffect(() => {
