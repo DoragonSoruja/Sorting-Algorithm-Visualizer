@@ -35,7 +35,7 @@ function App() {
     }
     else if(algorithm === "Quick Sort")
     {
-      drawQuick(percent, .0005)
+      drawQuick(percent, .001)
     }
   }
 
